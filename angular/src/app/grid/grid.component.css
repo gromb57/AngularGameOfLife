@@ -1,5 +1,5 @@
 *{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 .alive{
     background-color:mediumblue;
@@ -58,6 +58,12 @@ input {
     padding-right: 20px;
     padding-top: 12px;
     padding-bottom: 12px;
-    margin-right:7px;
+    margin-right:6px;
 
 }
+
+.button{
+    background-color:lightgray;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
