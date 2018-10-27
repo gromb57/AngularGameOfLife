@@ -1,0 +1,24 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family:"Tahoma";
+    font-size:12px;
+}
+
+.top_bar{
+    width:500px;
+    margin-left:20px;
+    margin-top:20px;
+}
+
+.header{
+    font-size:25px;
+    height:40px;
+    background-color:black;
+    padding:10px;
+    padding-left:20px;
+    color:white;
+    margin-bottom:50px;
+
+}
+
