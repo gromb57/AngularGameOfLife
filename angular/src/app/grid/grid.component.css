@@ -1,4 +1,6 @@
-
+*{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .alive{
     background-color:mediumblue;
 }
@@ -39,4 +41,22 @@ tr{
 
 .red.invisible{
     display:none;
+}
+
+.label{
+    width:200px;
+    display:block;
+    margin-bottom:10px;
+}
+
+input {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-right:7px;
+
 }

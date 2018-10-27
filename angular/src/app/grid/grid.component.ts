@@ -11,17 +11,65 @@ export class GridComponent implements OnInit {
   readonly ALIVE = true;
   readonly DEAD = false;
 
-  @Input() private _inputSize = 50;
+  /**
+   * Value of the Width input
+   * @type {number}
+   * @private
+   */
+  @Input() private _inputWidth = 80;
 
-  size = new Array(this.inputSize);
+  /**
+   * Width of the grid
+   * @type {any[]}
+   */
+  width = new Array(this._inputWidth);
 
-  get inputSize(): number {
-    return this._inputSize;
+  /**
+   * Getter for the inputWidth
+   * @returns {number}
+   */
+  get inputWidth(): number {
+    return this._inputWidth;
   }
 
-  set inputSize(value: number) {
-    this._inputSize = value;
-    this.size = new Array(+value);
+  /**
+   * Setter for the inputWidth
+   * @param value
+   */
+  set inputWidth(value: number) {
+    this._inputWidth = value;
+    this.width = new Array(+value);
+    this.initGrid();
+  }
+
+  /**
+   * Value of the height input
+   * @type {number}
+   * @private
+   */
+  @Input() private _inputHeight = 50;
+
+  /**
+   * Height of the grid
+   * @type {any[]}
+   */
+  height = new Array(this._inputHeight);
+
+  /**
+   * Getter for the inputHeight
+   * @returns {number}
+   */
+  get inputHeight(): number {
+    return this._inputHeight;
+  }
+
+  /**
+   * Setter for the inputHeight
+   * @param value
+   */
+  set inputHeight(value: number) {
+    this._inputHeight = value;
+    this.height = new Array(+value);
     this.initGrid();
   }
 
@@ -57,8 +105,8 @@ export class GridComponent implements OnInit {
 
     this.stop();
 
-    for(var x=0; x< this.size.length; x++){
-      for(var y=0; y< this.size.length; y++){
+    for(var x=0; x< this.width.length; x++){
+      for(var y=0; y< this.height.length; y++){
         if (this.grid[x] == null){
           this.grid[x] = []
         }
@@ -99,7 +147,8 @@ export class GridComponent implements OnInit {
   nextStateForCell(x,y){
 
     var neightbours = Array();
-    var maxSize = this.size.length -1;
+    var maxHeight = this.height.length -1;
+    var maxWidth = this.width.length - 1;
     var nextState=null;
 
     //Left side of the cell
@@ -110,7 +159,7 @@ export class GridComponent implements OnInit {
         neightbours.push(this.grid[x-1][y-1]);
       }
 
-      if (x != maxSize){
+      if (x != maxWidth){
         neightbours.push(this.grid[x+1][y-1]);
       }
     }
@@ -120,19 +169,19 @@ export class GridComponent implements OnInit {
       neightbours.push(this.grid[x-1][y]);
     }
 
-    if (x < maxSize){
+    if (x < maxWidth){
       neightbours.push(this.grid[x+1][y]);
     }
 
     //Right side of the cell
-    if (y < maxSize){
+    if (y < maxHeight){
       neightbours.push(this.grid[x][y+1]);
 
       if (x != 0){
         neightbours.push(this.grid[x-1][y+1]);
       }
 
-      if (x != maxSize){
+      if (x != maxWidth){
         neightbours.push(this.grid[x+1][y+1]);
       }
     }
@@ -167,8 +216,8 @@ export class GridComponent implements OnInit {
 
     var nextGrid = [];
 
-    for(var x= 0; x < this.size.length; x++) {
-      for(var y= 0; y < this.size.length; y++) {
+    for(var x= 0; x < this.width.length; x++) {
+      for(var y= 0; y < this.height.length; y++) {
         if (nextGrid[x] == null){
           nextGrid[x] = [];
         }

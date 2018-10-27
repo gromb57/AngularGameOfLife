@@ -1,10 +1,13 @@
 <div class="left">
     <div class="top_bar">
         <div class="subtitle">Controls</div>
-        Grid size : <input [(ngModel)]="inputSize" placeholder="10"/>
-        <input type="button" value="↻" (click)="initGrid()">
-        <input type="button" value="▶" (click)="run()">
-        <input type="button" value="◼" (click)="stop()">
+        <div class="label">Grid width : <input [(ngModel)]="inputWidth" placeholder="80"/><br/></div>
+        <div class="label">Grid height :<input [(ngModel)]="inputHeight" placeholder="50"/><br/></div>
+        <div>
+            <input type="button" value="↻" (click)="initGrid()">
+            <input type="button" value="▶" (click)="run()">
+            <input type="button" value="◼" (click)="stop()">
+        </div>
     </div>
 
     <div class="top_bar">
@@ -14,8 +17,8 @@
 
 <div class="right">
     <table>
-        <tr *ngFor="let y of size; let Ypos = index">
-            <td *ngFor="let x of size; let Xpos = index" id="{{Xpos}}-{{Ypos}}" [class.alive]="getCell(Xpos,Ypos)" (click)="onClick(Xpos,Ypos)">
+        <tr *ngFor="let y of height; let Ypos = index">
+            <td *ngFor="let x of width; let Xpos = index" id="{{Xpos}}-{{Ypos}}" [class.alive]="getCell(Xpos,Ypos)" (click)="onClick(Xpos,Ypos)">
             </td>
         </tr>
     </table>
