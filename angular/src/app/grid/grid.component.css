@@ -13,10 +13,10 @@ td{
 }
 
 table{
-    border:2px solid #808080;
     border-collapse:collapse;
     table-layout: fixed;
-
+    border: 2px solid #808080;
+    box-shadow: inset 0 1px 3px #ddd;
 }
 
 tr{
@@ -26,6 +26,7 @@ tr{
 .left{
     float:left;
     margin-right:20px;
+    margin-left:20px;
 }
 
 .subtitle {
@@ -35,8 +36,8 @@ tr{
 
 .red{
     font-size:20px;
-    padding-bottom:10px;
-    color:red;
+    color:crimson;
+    margin-top:20px;
 }
 
 .red.invisible{
