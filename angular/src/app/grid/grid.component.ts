@@ -146,56 +146,19 @@ export class GridComponent implements OnInit {
    */
   nextStateForCell(x,y){
 
-    var neightbours = Array();
-    var maxHeight = this.height.length -1;
-    var maxWidth = this.width.length - 1;
+    var aliveNeightbours = 0;
     var nextState=null;
 
-    //Left side of the cell
-    if (y != 0){
-      neightbours.push(this.grid[x][y-1]);
-
-      if (x != 0){
-        neightbours.push(this.grid[x-1][y-1]);
-      }
-
-      if (x != maxWidth){
-        neightbours.push(this.grid[x+1][y-1]);
-      }
-    }
-
-    //Middle
-    if (x != 0){
-      neightbours.push(this.grid[x-1][y]);
-    }
-
-    if (x < maxWidth){
-      neightbours.push(this.grid[x+1][y]);
-    }
-
-    //Right side of the cell
-    if (y < maxHeight){
-      neightbours.push(this.grid[x][y+1]);
-
-      if (x != 0){
-        neightbours.push(this.grid[x-1][y+1]);
-      }
-
-      if (x != maxWidth){
-        neightbours.push(this.grid[x+1][y+1]);
-      }
-    }
-
-    //Test how many alive
-    var aliveCells = 0;
-    for(var idx= 0; idx < neightbours.length; idx++) {
-      if (neightbours[idx] == this.ALIVE){
-        aliveCells++;
+    for (var i = x-1 ; i <= x +1 ; i++){
+      for (var j = y-1 ; j <= y +1 ; j++){
+        if ((x !=i || y != j) && this.grid[i] && this.grid[i][j] && this.grid[i][j] == this.ALIVE) {
+          aliveNeightbours++;
+        }
       }
     }
 
     //Next state according to how many neighbour cell are alive
-    switch (aliveCells){
+    switch (aliveNeightbours){
       case 3:
         nextState = this.ALIVE;
         break;
