@@ -32,8 +32,11 @@ jobs:
         restore-keys: v1-npm-deps-
     - run: cd $GITHUB_WORKSPACE/angular && npm install
     - run: cd $GITHUB_WORKSPACE/angular && npm run build --if-present
+    - run: cd $GITHUB_WORKSPACE/angular && ls
+    - run: cd $GITHUB_WORKSPACE/angular/dist && ls
+    - run: cd $GITHUB_WORKSPACE/angular/dist/angular && ls
     #- run: cd $GITHUB_WORKSPACE/angular && npm test # commented: get stuck
-    - name: Upload math result for job 2
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: dist
