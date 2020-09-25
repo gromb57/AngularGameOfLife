@@ -40,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: dist
-        path: $GITHUB_WORKSPACE/angular/dist/angular
+        path: $GITHUB_WORKSPACE/angular/dist/
