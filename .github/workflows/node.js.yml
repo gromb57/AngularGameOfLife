@@ -20,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: GITHUB_WORKSPACE/angular
+        working-directory: $GITHUB_WORKSPACE/angular
 
     steps:
     - uses: actions/checkout@v2
