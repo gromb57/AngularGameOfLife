@@ -36,8 +36,10 @@ jobs:
     - run: cd $GITHUB_WORKSPACE/angular/dist && ls
     - run: cd $GITHUB_WORKSPACE/angular/dist/angular && ls
     #- run: cd $GITHUB_WORKSPACE/angular && npm test # commented: get stuck
+    - run : cp -r $GITHUB_WORKSPACE/angular/dist/angular $GITHUB_WORKSPACE/docs 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ${{ env.name }}-dist
-        path: ${{ github.workspace }}/angular/dist/angular/**/*
+        #path: ${{ github.workspace }}/angular/dist/angular/**/*
+        path: ${{ github.workspace }}/docs/**/*
