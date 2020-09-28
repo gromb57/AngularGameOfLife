@@ -31,7 +31,7 @@ jobs:
         key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
         restore-keys: v1-npm-deps-
     - run: cd $GITHUB_WORKSPACE/angular && npm install
-    - run: cd $GITHUB_WORKSPACE/angular && npm run build --if-present
+    - run: cd $GITHUB_WORKSPACE/angular && npm run build-github-page --if-present
     - run: cd $GITHUB_WORKSPACE/angular && ls
     - run: cd $GITHUB_WORKSPACE/angular/dist && ls
     - run: cd $GITHUB_WORKSPACE/angular/dist/angular && ls
